@@ -14,7 +14,7 @@ pipeline {
         } 
         stage('Test Trigger') {
             steps {
-                sh 'echo ${params.DOCKERTAG}' 
+                sh 'echo ${DOCKERTAG}' 
             }
         }
     }
