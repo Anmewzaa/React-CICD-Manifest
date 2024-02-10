@@ -14,7 +14,7 @@ pipeline {
         } 
         stage('Test Trigger') {
             steps {
-                echo 'Trigger Complete'
+                echo 'Trigger Complete ${DOCKERTAG}'
             }
         }
     }
