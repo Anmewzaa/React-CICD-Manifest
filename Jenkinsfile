@@ -14,6 +14,7 @@ pipeline {
         } 
         stage('Test Trigger') {
             steps {
+                env.VERSION = "${DOCKERTAG}"
                 script {
                     sh 'cat k8s/deployment.yaml | envsubst' 
                 }
