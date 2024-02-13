@@ -15,8 +15,11 @@ pipeline {
         stage('Test Trigger') {
             steps {
                 script {
-                    env.VERSION = "${DOCKERTAG}"
-                    sh 'cat k8s/deployment.yaml | envsubst' 
+                    // env.VERSION = "${DOCKERTAG}"
+                    // sh 'cat k8s/deployment.yaml | envsubst | ' 
+                    withCredentials([usernamePassword(credentialsId: 'Github-Token')]) {
+                        sh('git push https://github.com/Anmewzaa/React-CICD-Manifest.git')
+                    }
                 }
             }
         }
