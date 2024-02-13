@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
         - name: my-react-app
-          image: punyakon/react-pipeline-image:{VERSION}
+          image: punyakon/react-pipeline-image:${VERSION}
           ports:
             - containerPort: 4173
