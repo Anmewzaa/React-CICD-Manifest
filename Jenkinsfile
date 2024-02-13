@@ -16,7 +16,7 @@ pipeline {
             steps {
                 sh 'echo ${DOCKERTAG}' 
                 sh 'cd k8s'
-                sh 'cat k8s/deployment.yaml | envsubst'
+                sh 'cat k8s/deployment.yaml | envsubst | cat k8s/testing-api-deploy.yaml' 
             }
         }
         // stage("Deploy to Kubernetes") {
