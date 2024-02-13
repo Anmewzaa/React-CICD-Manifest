@@ -17,7 +17,7 @@ pipeline {
                 script {
                     sh('''
                         envsubst < k8s/deployment.yaml
-                        git add .
+                        cat k8s/deployment.yaml
                     ''')
                 }
             }
