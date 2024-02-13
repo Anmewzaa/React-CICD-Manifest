@@ -15,7 +15,8 @@ pipeline {
         stage('Test Trigger') {
             steps {
                 sh 'echo ${DOCKERTAG}' 
-                sh 'ls'
+                sh 'cd k8s'
+                sh 'cat k8s/deployment.yaml | envsubst'
             }
         }
         // stage("Deploy to Kubernetes") {
