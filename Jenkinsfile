@@ -16,7 +16,7 @@ pipeline {
             steps {
                 script {
                     env.VERSION = "${DOCKERTAG}"
-                    sh "cat k8s/deployment.yaml | envsubst | git add ."
+                    sh "cat k8s/deployment.yaml | envsubst | cat k8s/deployment.yaml"
                 }
             }
         }
