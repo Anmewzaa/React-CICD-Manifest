@@ -15,14 +15,11 @@ pipeline {
         stage('Test Trigger') {
             steps {
                 script {
-                    // env.VERSION = "${DOCKERTAG}"
-                    // sh 'cat k8s/deployment.yaml | envsubst | ' 
+                    env.VERSION = "${DOCKERTAG}"
                     withCredentials([usernamePassword(credentialsId: 'Github-Token', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
                         sh "git config user.email punyakon857@gmail.com"
                         sh "git config user.name Anmewzaa"
-                        sh "cat k8s/deployment.yaml | envsubst"
-                        sh "cat k8s/deployment.yaml"
-                        sh "git add ."
+                        sh "cat k8s/deployment.yaml | envsubst | git add ."
                         sh "git commit -m 'Done by Jenkins Job changemanifest: ${env.BUILD_NUMBER}'"
                         sh "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/Anmewzaa/React-CICD-Manifest.git HEAD:main"
                     }
