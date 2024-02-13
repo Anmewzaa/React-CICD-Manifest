@@ -17,8 +17,10 @@ pipeline {
                 script {
                     // env.VERSION = "${DOCKERTAG}"
                     // sh 'cat k8s/deployment.yaml | envsubst | ' 
-                    withCredentials([usernamePassword(credentialsId: 'Github-Token')]) {
-                        sh('git push https://github.com/Anmewzaa/React-CICD-Manifest.git')
+                    withCredentials([usernamePassword(credentialsId: 'Github-Token', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
+                        sh "git config user.email punyakon857@gmail.com"
+                        sh "git config user.name Anmewzaa"
+                        sh "cat deployment.yaml"
                     }
                 }
             }
