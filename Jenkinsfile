@@ -15,8 +15,7 @@ pipeline {
         stage('Test Trigger') {
             steps {
                 script {
-                    sh "envsubst < k8s/deployment.yaml"
-                    sh "cat k8s/deployment.yaml"
+                    sh "envsubst < k8s/deployment.yaml | git add ."
                 }
             }
         }
