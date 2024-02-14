@@ -12,11 +12,18 @@ pipeline {
                 checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'Github-token', url: 'https://github.com/Anmewzaa/React-CICD-Manifest']])
             }
         } 
-        stage('Test Trigger') {
+        stage('Commit & Push to Gitops Repo') {
             steps {
                 script {
                     sh('''
-                        envsubst > deployment.yaml | cat deployment.yaml
+                        git config --global user.email 'Punyakon857@gmail.com'
+                        git config --global user.name 'Anmewzaa'
+                        git remote set-url origin https://$Github-Token@github.com/Anmewzaa/React-CICD-Manifest.git
+                        git checkout main
+                        git add -A
+                        git commit -am "Updated Deployment.yaml"
+                        cat deployment.yaml
+                        git push origin main
                     ''')
                 }
             }
