@@ -14,17 +14,9 @@ pipeline {
         } 
         stage('Update Deployment Manifest') {
             steps {
-                sh 'sed "s/{{GIT_COMMIT}}/$GIT_COMMIT/g" ../../deployment.yaml > ./deployment.yaml'
-            }
-        }
-        stage("test") {
-            steps {
-                script {
-                    sh('''
-                        sed -i "s/replaceImageTag/${DOCKERTAG}/g" k8s/deployments.yaml
-                        cat k8s/deployments.yaml
-                    ''')
-                }
+                sh('''
+                    envsubst > k8s/deployment.yaml | cat k8s/deployment.yaml
+                ''')
             }
         }
         // stage('Commit & Push to Gitops Repo') {
