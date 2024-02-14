@@ -16,8 +16,7 @@ pipeline {
             steps {
                 script {
                     sh('''
-                        sed -i 'punyakon/react-pipeline-image.* punyakon/react-pipeline-image:${DOCKERTAG}+g' deployment.yaml
-                        cat deployment.yaml
+                        envsubst > deployment.yaml | cat deployment.yaml
                     ''')
                 }
             }
