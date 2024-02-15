@@ -12,13 +12,6 @@ pipeline {
                 checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'Github-token', url: 'https://github.com/Anmewzaa/React-CICD-Manifest']])
             }
         } 
-        stage('Update Deployment Manifest') {
-            steps {
-                sh('''
-                    envsubst > k8s/deployment.yaml | cat k8s/deployment.yaml
-                ''')
-            }
-        }
         // stage('Commit & Push to Gitops Repo') {
         //     steps {
         //         script {
