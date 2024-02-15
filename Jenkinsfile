@@ -26,7 +26,7 @@ pipeline {
                         sh "git config user.email punyakon857@gmail.com"
                         sh "git config user.name Anmewzaa"
                         sh "git add ."
-                        sh "git commit -m 'Update deployment.yaml'"
+                        sh "git commit -m 'Update manifestfile version ${DOCKERTAG}'"
                         sh "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/React-CICD-Manifest.git HEAD:main"
                 }
             }
