@@ -12,8 +12,11 @@ spec:
       labels:
         app: my-react-app
     spec:
+      imagePullSecrets:
+        - name: react-pipeline-image
       containers:
         - name: my-react-app
           image: asia-southeast1-docker.pkg.dev/project-punyakon/react-pipeline-image/test-image:v0.1.1
+          imagePullPolicy: Always
           ports:
             - containerPort: 4173
