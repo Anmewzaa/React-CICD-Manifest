@@ -14,10 +14,6 @@ spec:
     spec:
       containers:
         - name: my-react-app
-<<<<<<< HEAD
           image: asia-southeast1-docker.pkg.dev/project-punyakon/react-pipeline-image/test-image:v0.1.1
-=======
-          image: punyakon/react-pipeline-image:v0.0.47
->>>>>>> a39df363566f60c5210dedcdfb83d0bdb65c2023
           ports:
             - containerPort: 4173
