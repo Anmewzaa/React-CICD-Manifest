@@ -18,4 +18,4 @@ spec:
           ports:
             - containerPort: 4173
       imagePullSecrets:
-        - name: gcr-json-key
+        - name: gcr-io
