@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: my-react-app
-          image: asia.gcr.io/project-punyakon/react-image:v0.1.1
+          image: asia.gcr.io/project-punyakon/react-image:v0.1.50
           ports:
             - containerPort: 4173
       imagePullSecrets:
