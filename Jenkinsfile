@@ -15,7 +15,7 @@ pipeline {
         stage('Update kubernetes manifest file') {
             steps {
                 sh('''
-                    sudo sed -i "s/v0.0.*/${DOCKERTAG}/g" k8s/deployment.yaml
+                    sudo sed -i "s/v0.1.*/${DOCKERTAG}/g" k8s/deployment.yaml
                     cat k8s/deployment.yaml
                 ''')
             }
